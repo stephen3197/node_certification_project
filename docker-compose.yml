@@ -9,7 +9,8 @@ services:
       - app-network
 
   customer:
-    build: ./customer
+    # build: ./customer
+    image: stephen_3197/customer-app:latest
     container_name: customer-app
     restart: always
     environment:
@@ -21,9 +22,10 @@ services:
       - app-network
 
   nginx:
-    build:
-      context: ./nginx/
-      dockerfile: Dockerfile
+    image: stephen_3197/nginx-app:latest
+    # build:
+    #   context: ./nginx/
+    #   dockerfile: Dockerfile
     container_name: nginx-proxy
     restart: always
     ports:
@@ -35,7 +37,8 @@ services:
       - app-network
 
   admin:
-    build: ./admin
+    # build: ./admin
+    image: stephen_3197/admin-app:latest
     container_name: admin-app
     restart: always
     environment:
