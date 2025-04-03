@@ -1,0 +1,54 @@
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  customer:
+    build: ./customer
+    container_name: customer-app
+    restart: always
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb+srv://stephen_3197:Oneplusthree3197@democluster.zviuy.mongodb.net/?retryWrites=true&w=majority&appName=DemoCluster
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - admin
+      - customer
+    networks:
+      - app-network
+
+  admin:
+    build: ./admin
+    container_name: admin-app
+    restart: always
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb+srv://stephen_3197:Oneplusthree3197@democluster.zviuy.mongodb.net/?retryWrites=true&w=majority&appName=DemoCluster
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

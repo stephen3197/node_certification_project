@@ -1,0 +1,90 @@
+<%- include('header.ejs', {
+  title: 'Sports' }) %>
+
+  <main class="container my-5">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h1 class="display-4">Sports News</h1>
+        <p class="lead">Get the latest updates from the world of sports</p>
+      </div>
+    </div>
+
+    <!-- Sports Categories -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h4 mb-4">Sports Categories</h2>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#" class="btn btn-outline-primary active">All Sports</a>
+          <a href="#" class="btn btn-outline-primary">Football</a>
+          <a href="#" class="btn btn-outline-primary">Basketball</a>
+          <a href="#" class="btn btn-outline-primary">Tennis</a>
+          <a href="#" class="btn btn-outline-primary">Cricket</a>
+          <a href="#" class="btn btn-outline-primary">Golf</a>
+          <a href="#" class="btn btn-outline-primary">Olympics</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Upcoming Matches -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h2 class="h4 mb-4">Upcoming Matches</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>Date & Time</th>
+                <th>Event</th>
+                <th>Teams</th>
+                <th>Venue</th>
+                <th>Broadcast</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oct 15, 2023 - 19:45</td>
+                <td>Premier League</td>
+                <td>Arsenal vs Manchester City</td>
+                <td>Emirates Stadium</td>
+                <td>Sky Sports</td>
+              </tr>
+              <tr>
+                <td>Oct 16, 2023 - 20:00</td>
+                <td>NBA</td>
+                <td>Lakers vs Warriors</td>
+                <td>Staples Center</td>
+                <td>ESPN</td>
+              </tr>
+              <tr>
+                <td>Oct 17, 2023 - 15:30</td>
+                <td>Champions League</td>
+                <td>Barcelona vs Bayern Munich</td>
+                <td>Camp Nou</td>
+                <td>BT Sport</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('footer.ejs') %>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .card-img-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      }
+    </style>
